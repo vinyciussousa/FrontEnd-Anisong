@@ -1,0 +1,73 @@
+:root {
+  background-color: #44d7b6;
+}
+
+@media screen and (min-width: 768px) {
+	header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin: 0 auto;
+  min-width: 60%;
+  max-width: 80%;
+  height: 4.5em;
+  background-color: #bcefc7;
+  border-radius: 0em 0em 2.5em 2.5em;
+	justify-self: center;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+	margin-left: 10%;
+  width: 50em;
+  height: 4.5em;
+  background-color: #bcefc7;
+  border-radius: 0em 0em 2.5em 2.5em;
+	justify-self: center;
+	}
+}
+
+.frame5 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+	justify-self: center;
+	margin: 0 auto;
+}
+
+.frame3 {
+  display: flex;
+  flex-direction: row;
+	justify-self: center;
+  justify-content: space-between;
+  width: 80%;
+	margin: 0 auto;
+}
+
+.frame4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  position: relative;
+  width: 35%;
+}
+
+.item{
+	width: 40%;
+	display: flex;
+	flex-direction: row;
+}
+
+.Link{
+	margin-left: 1%;
+	text-decoration: none;
+}

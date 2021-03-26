@@ -1,0 +1,61 @@
+.caixa{
+	position: relative;
+	font-family: "Nunito Sans";
+	font-weight: 300;
+}
+
+.opcoes{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: space-between;
+	width: 52%;
+	left: 25%;
+}
+.svgC{
+	width: 20vw;
+	height: 4vh;
+}
+.svg{
+	width: 15vw;
+	height: 4vh;
+}
+
+.resultados{
+	position: relative;
+}
+
+.users{
+	position: relative;
+}
+
+.elemento{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px 39px;
+	font-size: 1vw;
+	list-style-type: none;
+	position: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+	margin-top: 20px; 
+	background-color: #bcefc7;
+	border-radius: 10px;
+}
+
+.nome{
+	width: 10%;
+}
+
+.code{
+	width: 10%;
+}
+
+.obra{
+	width: 10%;
+}
+

@@ -1,0 +1,243 @@
+:root {
+  --batata: rgba(53, 59, 80, 1);
+}
+
+@font-face {
+  font-family: "Avenir-Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: url("https://fonts.animaapp.com/Avenir-Medium") format("opentype");
+}
+
+.titulo {
+	position: relative;
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+  margin-top: 64px;
+  letter-spacing: 0px;
+  min-height: 63px;
+  min-width: 208px;
+  color: var(--batata);
+  font-family: "Avenir-Medium", Arial;
+  font-size: 2.875em;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px){
+	form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 34.25em;
+	margin: 0 auto;
+	}
+	.Obra input {
+  position: relative;
+  height: 3.8125em;
+  background-color: rgba(241, 241, 241, 0.24);
+  border: hidden;
+  margin-top: 0.3125em;
+  padding-left: 2.1875em;
+  color: var(--batata);
+  border-radius: 0.625em;
+	}
+}
+
+@media screen and (max-width: 767px){
+	form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+	margin-left: 30%;
+	}
+	.Obra input {
+  position: relative;
+	width: 34.25em;
+  height: 3.8125em;
+  background-color: rgba(241, 241, 241, 0.24);
+  border: hidden;
+  margin-top: 0.3125em;
+  padding-left: 2.1875em;
+  color: var(--batata);
+  border-radius: 0.625em;
+	}
+}
+
+.Secundario {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.875em;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.Obra,
+.ID,
+.Musica {
+	width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: "Avenir-Medium", Arial;
+  font-size: 1.0625em;
+  color: var(--batata);
+}
+
+.Musica {
+	margin-left: 1.875em;
+  width: 100%;
+}
+
+.ID input {
+  position: relative;
+  width: 8.3125em;
+  height: 3.8125em;
+  background-color: rgba(241, 241, 241, 0.24);
+  text-align: center;
+  border: hidden;
+  margin-top: 0.3125em;
+  color: var(--batata);
+  border-radius: 0.625em;
+}
+
+.Musica input {
+  position: relative;
+  width: 24.0625em;
+  height: 3.8125em;
+  background-color: rgba(241, 241, 241, 0.24);
+  border: hidden;
+  margin-top: 0.3125em;
+  padding-left: 2.1875em;
+  color: var(--batata);
+  border-radius: 0.625em;
+}
+
+.btn {
+  position: relative;
+  width: 16.5em;
+  height: 3.8125em;
+  background-color: #0091ff;
+  border-radius: 3px;
+  color: #fff;
+  border: hidden;
+	margin: 1.625em 0 3.125em auto;
+  font-family: "Avenir-Medium", Arial;
+  font-size: 1.0625em;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px){
+	.lista {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+	margin-left: 15%;
+  padding: 0px;
+  align-items: left;
+	}
+}
+
+@media screen and (min-width: 768px){
+	.lista {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px;
+  align-items: center;
+	}
+}
+
+.itemLista {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  padding-left: 39px;
+  position: relative;
+  max-width: 789px;
+  height: 72px;
+  background-color: #bcefc7;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#nome_lista,
+#code_lista,
+#obra_lista,
+.Link {
+  position: relative;
+  width: 280px;
+  height: 24px;
+  font-family: "Avenir-Medium", Arial;
+  font-size: 14px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: #353b50;
+}
+
+#code_lista {
+  width: 60px;
+  height: 24px;
+  margin: 0 20px;
+}
+
+#obra_lista {
+  width: 155px;
+  height: 24px;
+  margin-right: 60px;
+}
+
+#get_app_lista {
+  margin: 0px 22px;
+}
+
+#get_cicle {
+  margin-right: 39px;
+}
+
+.animegirl {
+  position: sticky;
+  bottom: 0;
+  float: right;
+  z-index: -10;
+}
+
+@media screen and (max-width: 767px){
+
+}
+
+@media screen and (min-width: 768px){
+	.opcs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 1.5em;
+	}
+
+	.opcs #ds {
+  margin-left: 3.4375em;
+  margin-right: 3.4375em;
+	}
+}
+
+.inferior {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.inferior h3 {
+  font-family: "Avenir-Medium", Arial;
+  font-size: 15px;
+  line-height: 23px;
+  color: green;
+}
+
