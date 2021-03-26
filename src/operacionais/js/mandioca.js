@@ -1,51 +1,60 @@
 import React, { useState, useEffect } from "react";
-import "../css/mandioca.css";
+import "./../css/mandioca.css";
 import Header from "./header";
-import { RadioButton } from "primereact/radiobutton";
-import add_lista from "../../svgs/add_lista.svg";
-import download_selec from "../../svgs/download_selec.svg";
-import selec_all from "../../svgs/selec_all.svg";
-import playlist_add from "../../svgs/playlist_add.svg";
-import get_app from "../../svgs/get_app.svg";
-import cicle from "../../svgs/cicle.svg";
-import cicle_preenchido from "../../svgs/cicle_preenchido.svg";
-import JK from "../../svgs/JK.svg";
+// import { RadioButton } from "primereact/radiobutton";
+import add_lista from "./../../svgs/add_lista.svg";
+import download_selec from "./../../svgs/download_selec.svg";
+import selec_all from "./../../svgs/selec_all.svg";
+import playlist_add from "./../../svgs/playlist_add.svg";
+import get_app from "./../../svgs/get_app.svg";
+import cicle from "./../../svgs/cicle.svg";
+// import cicle_preenchido from "../../svgs/cicle_preenchido.svg";
+import JK from "./../../svgs/JK.svg";
 
-const getLocalStorage = () => {
-  let selCicle = localStorage.getItem('selCicle');
-  if (selCicle) {
-    return JSON.parse(localStorage.getItem('selCicle'));
-  } else {
-    return [];
-  }
+const Post = async (obra, code, nome) => {
+  const rawResponse = await fetch(
+    "https://DotingMeaslyAstronomy.wayukier.repl.co/api/listas",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        obra: obra,
+        code: code,
+        nome: nome,
+      }),
+    }
+  );
+  const content = await rawResponse.json();
+
+  console.log(content);
 };
 
+// const Post = (obra, code, nome) => {
+//   const params = {
+//     obra: obra,
+//     code: code,
+//     nome: nome,
+//   };
+//   const options = {
+//     method: "POST",
+//     body: JSON.stringify(params),
+//   };
+//   fetch("https://DotingMeaslyAstronomy.wayukier.repl.co/api/listas", options)
+//     .then((response) => response.json())
+//     .then((response) => {
+//       console.log(response);
+//     });
+// };
+
 const ItemLista = (props) => {
-  const [selCicle, setSelCicle] = useState(getLocalStorage());
   const handlePlaylistAdd = () => {};
   const handleGetApp = () => {};
-  const handleCicle = (id) => {
-    if (!selCicle.includes(id)) {
-      setSelCicle(selCicle.concat(id));
-    } else {
-      console.log("Ah não você de novo?.... Vou te matar!");
-      setSelCicle(
-        selCicle.filter((unit) => {
-          if (unit !== id) {
-            return unit;
-          } else {
-            console.log(`Removi ${unit} dos selecionados!`);
-            // alert(`Removi ${unit} dos selecionados!`);
-          }
-        })
-      );
-    }
-    console.log(selCicle);
+  const handleCicle = (obra, code, nome) => {
+    Post(obra, code, nome);
   };
-
-  useEffect(()=>{
-    localStorage.setItem('selCicle',JSON.stringify(selCicle))
-  },[selCicle])
 
   return (
     <>
@@ -59,7 +68,11 @@ const ItemLista = (props) => {
           id="get_app_lista"
           onClick={() => handleGetApp(props.id)}
         />
-        <img src={cicle} id="get_cicle" onClick={() => handleCicle(props.id)} />
+        <img
+          src={cicle}
+          id="get_cicle"
+          onClick={() => handleCicle(props.obra, props.code, props.nome)}
+        />
       </div>
     </>
   );
