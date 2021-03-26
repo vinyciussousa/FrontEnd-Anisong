@@ -159,7 +159,7 @@
   margin: 0 auto;
   padding-left: 39px;
   position: relative;
-  max-width: 789px;
+  max-width: 49.3125em;
   height: 72px;
   background-color: #bcefc7;
   border-radius: 10px;
@@ -239,3 +239,76 @@
   color: green;
 }
 
+@media screen and (min-width: 768px){
+	.listaFolder {
+  	position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+  	max-width: 49.3125em;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 767px){
+	.listaFolder {
+  	position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+  	width: 80%;
+		margin-left: 30%;
+		
+	}
+}
+
+@media screen and (max-width: 768px){
+	.listaFolder .titulo{
+		margin-left: 15%;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.downloadsFolder{
+		position: relative;
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: center;
+  	width: 60%;
+		margin-left: 30%;
+		margin-top: 20%
+	}
+}
+
+@media screen and (min-width: 768px){
+	.downloadsFolder{
+		position: relative;
+  	display: flex;
+  	flex-direction: row;
+  	justify-content: center;
+  	max-width: 49.3125em;
+		margin: 10% auto;
+	}
+}
+
+@media screen and (max-width: 768px){
+	.downloadsTextos{
+		margin-left: 15%;
+	}
+}
+
+@media screen and (min-width: 769px){}
+
+.subtitulo {
+	position: relative;
+  display: flex;
+  margin-top: -10%;
+  letter-spacing: 0px;
+  min-height: 63px;
+  min-width: 208px;
+  color: var(--batata);
+  font-family: "Avenir-Medium", Arial;
+  font-size: 1.625em;
+  font-style: normal;
+  font-weight: 500;
+}

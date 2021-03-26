@@ -5,6 +5,7 @@ import playlist_add from "./../svgs/playlist_add.svg";
 import get_app from "./../svgs/get_app.svg";
 import cicle from "./../svgs/cicle.svg";
 import { unstable_renderSubtreeIntoContainer } from "react-dom";
+import JK from "./../svgs/JK.svg";
 
 const Listaa = () => {
   const [url, setUrl] = useState(
@@ -23,15 +24,17 @@ const Listaa = () => {
         <h4 id="code_lista">{props.code}</h4>
         <h4 id="obra_lista">{props.obra}</h4>
         <div className="opcao">
-          <img src={playlist_add} onClick={() => handlePlaylistAdd(props.id)} />
+          <img src={playlist_add} alt="" onClick={() => handlePlaylistAdd(props.id)} />
           <img
             src={get_app}
             id="get_app_lista"
+						alt=""
             onClick={() => handleGetApp(props.id)}
           />
           <img
             src={cicle}
             id="get_cicle"
+						alt=""
             onClick={() => handleCicle(props.id)}
           />
         </div>
@@ -72,7 +75,11 @@ const Listaa = () => {
   return (
     <>
       <Header />
+			<div className="listaFolder">
+				<h1 className="titulo">[LISTA]</h1>
+			</div>
       <Lista vetor={listinha} />
+			<img src={JK} alt="Mascot JK" className="animegirl" />
     </>
   );
 };

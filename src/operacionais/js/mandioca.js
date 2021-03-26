@@ -62,15 +62,17 @@ const ItemLista = (props) => {
       <h4 id="code_lista">{props.code}</h4>
       <h4 id="obra_lista">{props.obra}</h4>
       <div className="opcao">
-        <img src={playlist_add} onClick={() => handlePlaylistAdd(props.id)} />
+        <img src={playlist_add} alt="" onClick={() => handlePlaylistAdd(props.id)} />
         <img
           src={get_app}
           id="get_app_lista"
+					alt=""
           onClick={() => handleGetApp(props.id)}
         />
         <img
           src={cicle}
           id="get_cicle"
+					alt=""
           onClick={() => handleCicle(props.obra, props.code, props.nome)}
         />
       </div>
@@ -199,13 +201,13 @@ const Everything = () => {
           </button>
         </div>
         <div className="opcs">
-          <img src={add_lista} />
-          <img src={download_selec} id="ds" />
-          <img src={selec_all} />
+          <img src={add_lista} alt="" />
+          <img src={download_selec} id="ds" alt="" />
+          <img src={selec_all} alt="" />
         </div>
       </form>
       <Lista vetor={users} />
-      <img src={JK} className="animegirl" />
+      <img src={JK} alt="Mascot JK" className="animegirl" />
     </>
   );
 };
