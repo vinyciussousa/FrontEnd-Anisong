@@ -10,7 +10,7 @@
 }
 
 .titulo {
-	position: relative;
+		position: relative;
   display: flex;
   margin-top: 64px;
   letter-spacing: 0px;
