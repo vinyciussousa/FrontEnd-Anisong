@@ -13,30 +13,54 @@ import cicle_preenchido from "./../../svgs/cicle_preenchido.svg";
 import JK from "./../../svgs/JK.svg";
 
 const Post = async (obra, code, nome) => {
+  const valido = true;
   try {
-    const rawResponse = await fetch(
-      "https://DotingMeaslyAstronomy.wayukier.repl.co/api/listas",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          obra: obra,
-          code: code,
-          nome: nome,
-        }),
-      }
+    const verResponse = await fetch(
+      "https://DotingMeaslyAstronomy.wayukier.repl.co/api/l"
     );
-    // const content = await rawResponse.json();
-    const resulta = await rawResponse.json();
-    console.log(resulta);
-    alert(`${nome} adicionado à lista`);
-    return resulta._id;
-  } catch (err) {
-    console.log(err);
-    alert(`Houve um problema ao adicionar ${nome} à lista`);
+    const verJson = await verResponse.json();
+    try {
+      verJson.map((a) => {
+        if (a.code === code) {
+          console.log("Falhou");
+          valido = false;
+        }
+        return null;
+      });
+      if (valido) {
+        console.log("É válido");
+        try {
+          const rawResponse = await fetch(
+            "https://DotingMeaslyAstronomy.wayukier.repl.co/api/listas",
+            {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                obra: obra,
+                code: code,
+                nome: nome,
+              }),
+            }
+          );
+          // const content = await rawResponse.json();
+          const resulta = await rawResponse.json();
+          console.log(resulta);
+          // alert(`${nome} adicionado à lista`);
+          return resulta._id;
+        } catch (err) {
+          console.log(err);
+          alert(`Houve um problema ao adicionar ${nome} à lista`);
+        }
+      }
+    } catch (er) {
+      console.log(er);
+      alert(`${nome} já está na lista!`);
+    }
+  } catch (erro) {
+    console.log(erro);
   }
 };
 
@@ -54,7 +78,7 @@ const Delete = async (id, nome) => {
     );
     const content = await rawResponse.json();
     console.log(content);
-    alert(`${nome} removido da lista`);
+    // alert(`${nome} removido da lista`);
   } catch (err) {
     console.log(err);
     alert(`Houve um problema ao remover ${nome} da lista`);
@@ -127,7 +151,21 @@ const ItemLista = (props) => {
     }
   };
 
+  const selecion2 = () => {
+    // console.log("Entrou em selecion2");
+    try {
+      if (props.play) {
+        setPlaylist(true);
+      } else {
+        setPlaylist(false);
+      }
+    } catch (err) {
+      setPlaylist(false);
+    }
+  };
+
   useEffect(() => selecion(), [props.sel]);
+  useEffect(() => selecion2(), [props.play]);
 
   return (
     <>
@@ -137,16 +175,19 @@ const ItemLista = (props) => {
       <div className="opcao">
         <img
           src={playlist ? playlist_add_check : playlist_add}
+          alt="playlist"
           onClick={() => handlePlaylistAdd(props.id)}
         />
         <img
           src={get_app}
           id="get_app_lista"
+          alt="get+app"
           onClick={() => handleGetApp(props.id)}
         />
         <img
           src={circulo ? cicle_preenchido : cicle}
           id="get_cicle"
+          alt="get+cicle"
           onClick={() => handleCicle(props.obra, props.code, props.nome)}
         />
       </div>
@@ -156,6 +197,7 @@ const ItemLista = (props) => {
 
 const Lista = (props) => {
   const [selecionarTudo, setSelecionarTudo] = useState(false);
+  const [playlistTudo, setPlaylistTudo] = useState(false);
   const [selecionadoss, setSelecionadoss] = useState([]);
   const { vetor } = props;
 
@@ -166,12 +208,16 @@ const Lista = (props) => {
       console.log(selecionadoss);
       if (typeof selecionadoss == typeof []) {
         selecionadoss.map((unidade) => {
-          const { _id, obra, code, nome } = unidade;
+          const { obra, code, nome } = unidade;
           Post(obra, code, nome);
+          return null;
         });
+        // console.log(respostas);
         setSelecionadoss([]);
         console.log("tudo deselecionado");
         setSelecionarTudo(false);
+        setPlaylistTudo(true);
+        alert(`Tudo adicionado!`);
       } else {
         console.log("Não é um tipo Array");
         console.log(selecionadoss);
@@ -193,6 +239,7 @@ const Lista = (props) => {
           // const { _id, obra, code, nome } = unidade;
           // console.log(unidade);
           frango.unshift(unidade);
+          return null;
         });
         setSelecionadoss(frango);
         console.log(selecionadoss);
@@ -208,9 +255,9 @@ const Lista = (props) => {
   return (
     <>
       <div className="opcs">
-        <img src={add_lista} onClick={() => enviarLista()} />
-        <img src={download_selec} id="ds" />
-        <img src={selec_all} onClick={() => selecionar()} />
+        <img src={add_lista} alt="al" onClick={() => enviarLista()} />
+        <img src={download_selec} alt="ds" id="ds" />
+        <img src={selec_all} alt="sa" onClick={() => selecionar()} />
       </div>
       <ul className="lista">
         {vetor.map((user) => {
@@ -224,6 +271,7 @@ const Lista = (props) => {
                   code={code}
                   nome={nome}
                   sel={selecionarTudo}
+                  play={playlistTudo}
                 />
               </li>
             </>
@@ -251,13 +299,13 @@ const Everything = () => {
       setUrl(
         `https://dotingmeaslyastronomy.wayukier.repl.co/api/musicas/nome/${nome}`
       );
-      // setEstado("[ATENÇÃO] Buscando por Música");
+      setEstado("[ATENÇÃO] Buscando por Música");
     } else if (code) {
       console.log("Legal temos um código yeh");
       setUrl(
         `https://dotingmeaslyastronomy.wayukier.repl.co/api/musicas/code/${code}`
       );
-      // setEstado("[ATENÇÃO] Buscando por ID");
+      setEstado("[ATENÇÃO] Buscando por ID");
     } else if (obra) {
       console.log("Legal temos uma obra! YEHHH");
       if (obra === "*") {
@@ -267,7 +315,7 @@ const Everything = () => {
           `https://dotingmeaslyastronomy.wayukier.repl.co/api/musicas?obra=${obra}`
         );
       }
-      // setEstado("[ATENÇÃO] Buscando por Obra");
+      setEstado("[ATENÇÃO] Buscando por Obra");
       console.log(url);
     } else {
       console.log("Vish, não sei o que temos! Então vou colocar Angel Beats!");
@@ -338,7 +386,7 @@ const Everything = () => {
         </div>
       </form>
       <Lista vetor={users} />
-      <img src={JK} className="animegirl" />
+      <img src={JK} alt="JK" className="animegirl" />
     </>
   );
 };
