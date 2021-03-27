@@ -209,7 +209,9 @@
 }
 
 @media screen and (max-width: 767px){
-
+	.opcs > img {
+  margin-left: 30%;
+	}
 }
 
 @media screen and (min-width: 768px){
