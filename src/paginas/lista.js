@@ -235,7 +235,9 @@ const Listaa = () => {
   return (
     <>
       <Header />
-      <h1 className="titulo">[LISTA]</h1>
+			<div className="listaFolder">
+      	<h1 className="titulo">[LISTA]</h1>
+			</div>
       <Lista vetor={listinha} />
     </>
   );
