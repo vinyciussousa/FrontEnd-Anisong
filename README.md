@@ -1,10 +1,9 @@
-# BackEnd - Anisong
+# Frontend - Anisong
 
-Implementação do backend de um site que permite a pesquisa, criação de playlists e disponibiliza a base para o download de músicas de abertura e encerramento de animes. O site permite a pesquisa por música, obra ou ID.
+Implementação do frontend de um site que permite a pesquisa, criação de playlists e disponibiliza a base para o download de músicas de abertura e encerramento de animes. O site permite a pesquisa por música, obra ou ID.
 
-## Tecnologia utilizadas no backend:
-1. **Node.js**
-2. **MongoDB**
+## Tecnologia utilizadas no frontend:
+1. **React**
 
 ## Lista de atividades: 
 
