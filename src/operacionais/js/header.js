@@ -17,8 +17,8 @@ function Header() {
   };
   return (
     <header>
-      <div className="frame5">
-        <div className="frame3">
+      <div className="guia">
+        <div className="items-guia">
 					<div className="item">
           <img src={searchIcon} alt="buscar" onClick={toBuscar} />
           <Link to="/" className="Link">
@@ -38,10 +38,6 @@ function Header() {
           </Link>
 					</div>
         </div>
-        {/* <div className="frame4">
-          <img src={stormtrooperIcon} alt="stormtrooper" />
-          <img src={settingsIcon} alt="config" />
-        </div> */}
       </div>
     </header>
   );

@@ -9,8 +9,8 @@
   top: 0;
   z-index: 10;
   margin: 0 auto;
-  min-width: 60%;
-  max-width: 80%;
+  min-width: 66%;
+  max-width: 88%;
   height: 4.5em;
   background-color: #bcefc7;
   border-radius: 0em 0em 2.5em 2.5em;
@@ -25,7 +25,8 @@
   top: 0;
   z-index: 10;
 	margin-left: 10%;
-  width: 50em;
+  min-width: 33%;
+	max-width: 66%;
   height: 4.5em;
   background-color: #bcefc7;
   border-radius: 0em 0em 2.5em 2.5em;
@@ -33,7 +34,7 @@
 	}
 }
 
-.frame5 {
+.guia {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -45,26 +46,19 @@
 	margin: 0 auto;
 }
 
-.frame3 {
+.items-guia {
   display: flex;
   flex-direction: row;
-	justify-self: center;
-  justify-content: space-between;
-  width: 85%;
-	margin: 0 auto;
-}
-
-.frame4 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  position: relative;
-  width: 35%;
+  justify-content: center;
+	margin: auto 10%;
+	min-width: 70em;
+	max-width: 100em;
 }
 
 .item{
 	display: flex;
 	flex-direction: row;
+	max-width: 20em;
 }
 
 .Link{
